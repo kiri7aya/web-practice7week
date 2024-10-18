@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks with Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5 text-center">
+        <h1>JavaScript Tasks</h1>
+
+        <div class="mt-4">
+            <button id="task1Button" class="btn btn-primary">First Task (Name Greeting)</button>
+        </div>
+
+        <div class="mt-4">
+            <button id="task2Button" class="btn btn-success">Second Task (BMI Calculator)</button>
+        </div>
+
+        <div class="mt-4">
+            <button id="task3Button" class="btn btn-warning">Third Task (Fibonacci Generator)</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Code -->
+    <script>
+        // First Task: Name Greeting
+        function first_task(){
+            var name = prompt("What is your name?");
+            name = name.toLowerCase();
+            name = name.substring(0,1).toUpperCase() + name.substring(1);
+            alert("Hello " + name);
+        }
+
+        // Second Task: BMI Calculator
+        function second_task(){
+            var weight = parseInt(prompt("What is your weight (kg)?"));
+            var height = parseInt(prompt("What is your height (m)?"));
+            var bmi = weight / (height * height);
+
+            if(bmi < 18.5){
+                alert("You are underweight");
+            }
+            else if(bmi >= 18.5 && bmi <= 24.9){
+                alert("You are normal");
+            }
+            else if(bmi >= 25 && bmi <= 29.9){
+                alert("You are overweight");
+            }
+        }
+
+        // Third Task: Fibonacci Generator
+        function third_task(){
+            var number = parseInt(prompt("Enter a number"));
+            var fibonacci = [0,1];
+
+            if (number < 0) {
+                alert("Enter a positive number");
+            }
+            else if (number == 0) {
+                alert("0");
+            }
+            else if (number == 1) {
+                alert("0, 1");
+            }
+            else {
+                for (var i = 2; i < number; i++) {
+                    fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+                }
+                alert(fibonacci);
+            }
+        }
+
+        // Event Listeners for Buttons
+        document.getElementById("task1Button").addEventListener("click", first_task);
+        document.getElementById("task2Button").addEventListener("click", second_task);
+        document.getElementById("task3Button").addEventListener("click", third_task);
+    </script>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
